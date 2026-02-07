@@ -2,102 +2,206 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For My Bbu ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
-body {
-    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-    color: #f5f5f5;
-    font-family: 'Georgia', serif;
-    display: flex;
-    justify-content: center;
-    padding: 30px;
+*{
+  box-sizing:border-box;
 }
-.card {
-    max-width: 800px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 20px;
-    padding: 35px;
-    box-shadow: 0 0 30px rgba(255,0,100,0.3);
+
+body{
+  margin:0;
+  height:100vh;
+  background: radial-gradient(circle at top, #1a001f, #000);
+  font-family:'Poppins', sans-serif;
+  color:#fff;
+  overflow:hidden;
 }
-h1 {
-    text-align: center;
-    color: #ff4d6d;
+
+/* Sparkles */
+.sparkle{
+  position:fixed;
+  width:4px;
+  height:4px;
+  background:#ffb6c1;
+  border-radius:50%;
+  opacity:.6;
+  animation:sparkle 7s linear infinite;
 }
-p {
-    line-height: 1.8;
-    font-size: 17px;
+
+@keyframes sparkle{
+  0%{transform:translateY(100vh) scale(0);}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh) scale(1); opacity:0;}
 }
-.heart {
-    text-align: center;
-    font-size: 30px;
+
+/* Floating hearts */
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:18px;
+  opacity:.6;
+  animation:floatUp 9s linear infinite;
 }
-.signature {
-    margin-top: 30px;
-    font-weight: bold;
-    color: #ffb3c1;
+
+@keyframes floatUp{
+  0%{transform:translateY(0) scale(.8); opacity:0;}
+  20%{opacity:.6;}
+  100%{transform:translateY(-110vh) scale(1.4); opacity:0;}
+}
+
+/* Fullscreen Letter */
+.letter{
+  height:100vh;
+  width:100%;
+  overflow-y:auto;
+  padding:60px 8vw;
+  backdrop-filter: blur(10px);
+  animation:fadeIn 2s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+h1{
+  font-family:'Playfair Display', serif;
+  text-align:center;
+  font-size:clamp(30px,5vw,44px);
+  color:#ff7aa2;
+  text-shadow:0 0 18px rgba(255,122,162,.6);
+  margin-bottom:40px;
+}
+
+p{
+  max-width:900px;
+  margin:24px auto;
+  font-size:clamp(16px,2.6vw,19px);
+  line-height:1.9;
+  text-shadow:0 0 8px rgba(255,182,193,.25);
+}
+
+.center-heart{
+  text-align:center;
+  font-size:36px;
+  margin:40px 0;
+  animation:heartbeat 1.8s infinite;
+}
+
+@keyframes heartbeat{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.25);}
+}
+
+.signature{
+  max-width:900px;
+  margin:60px auto 0;
+  text-align:right;
+  font-family:'Playfair Display', serif;
+  font-size:clamp(17px,3vw,20px);
+  color:#ffb6c1;
+}
+
+/* Scrollbar subtle */
+.letter::-webkit-scrollbar{
+  width:6px;
+}
+.letter::-webkit-scrollbar-thumb{
+  background:rgba(255,122,162,.4);
+  border-radius:10px;
 }
 </style>
 </head>
 
 <body>
-<div class="card">
-<h1>For My Bbu ❤️</h1>
 
-<p>
-Bachha mera, sach bataun toh mujhe likh ke ya bol kar pyaar jatana nahi aata.  
-Aur jo likhta hoon na, usme pyaar theek se dikh bhi nahi pata.  
-Par iska matlab ye bilkul nahi ki pyaar kam hai…  
-bas bolne se zyada mehsoos karta hoon.
-</p>
+<!-- Sparkles & Hearts -->
+<script>
+for(let i=0;i<45;i++){
+  let s=document.createElement("div");
+  s.className="sparkle";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDelay=Math.random()*7+"s";
+  document.body.appendChild(s);
+}
+for(let i=0;i<25;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="💖";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDelay=Math.random()*9+"s";
+  document.body.appendChild(h);
+}
+</script>
 
-<p>
-Mai jaanta hoon tu thodi gusse wali hai 😅  
-aur main bhi koi asaan insaan nahi hoon.  
-Tu apna gussa hamesha sambhaal nahi paati,  
-aur na hi mai.  
-Par phir bhi tu poori koshish karti hai —  
-ye baat mere liye bohot badi hai, bachha mera 💗
-</p>
+<!-- Music -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2023/03/30/audio_1b9b6d98a6.mp3">
+</audio>
 
-<p>
-Jab main low hota hoon, jab main khud ko bhi nahi jhel pata,  
-tab bhi tu try karti hai.  
-Kabhi words se, kabhi bas saath reh ke.  
-Tu mujhe force nahi karti strong banne ke liye —  
-bas mere saath khadi rehti hai.  
-Aur wahi mere liye sab kuch hai 💗
-</p>
+<!-- Letter -->
+<div class="letter">
+  <h1>For My Bbu ❤️</h1>
 
-<p>
-Tu meri partner hai, meri dost hai, aur mera sahara bhi.  
-Main maanta hoon main perfect nahi hoon,  
-na efforts sahi se kar pata hoon,  
-kabhi gussa kar deta hoon,  
-kabhi tujhe door bhi kar deta hoon… 😔  
-par sach ye hai ki main tujhse bohot pyaar karta hoon.
-</p>
+  <p>
+    Bachha mera…  
+    Sach bataun toh mujhe likh ke ya bol kar pyaar jatana nahi aata.  
+    Aur jo likhta hoon na, usme pyaar shayad theek se dikh bhi nahi pata.  
+    Par iska matlab ye bilkul nahi ki pyaar kam hai —  
+    bas bolne se zyada mehsoos karta hoon.
+  </p>
 
-<p class="heart">💎🫂💝</p>
+  <p>
+    Mai jaanta hoon tu thodi gusse wali hai 😅  
+    aur main bhi koi asaan insaan nahi hoon.  
+    Tu apna gussa hamesha sambhaal nahi paati,  
+    aur na hi mai.  
+    Phir bhi tu poori koshish karti hai…  
+    aur wahi baat mere liye sabse badi hai, Bbu.
+  </p>
 
-<p>
-Aaj Propose Day hai, toh main filmy baatein nahi karunga.  
-Bas itna kehna hai —  
-meri life mein jo tu karti hai na,  
-wo koi aur nahi kar sakta, Bbu.
-</p>
+  <p>
+    Jab main low hota hoon, jab main khud ko bhi nahi jhel pata,  
+    tab bhi tu try karti hai.  
+    Kabhi words se, kabhi sirf saath reh ke.  
+    Tu mujhe force nahi karti strong banne ke liye —  
+    bas mere saath khadi rehti hai.  
+    Aur wahi mere liye sab kuch hai.
+  </p>
 
-<p>
-Toh bachha…  
-tu rahegi na meri life mein?  
-Meri partner ban ke, meri strength ban ke,  
-aur ek din… meri future wife ban ke ❤️
-</p>
+  <p>
+    Tu meri partner hai, meri dost hai, aur mera sahara bhi.  
+    Main maanta hoon main perfect nahi hoon —  
+    kabhi gussa, kabhi door, kabhi khud se bhaagta hua. 😔  
+    Par sach ye hai ki main tujhse dil se pyaar karta hoon.
+  </p>
 
-<p class="signature">
-Always yours,<br>
-Om
-</p>
+  <div class="center-heart">💎🫂💝</div>
 
+  <p>
+    Aaj Propose Day hai.  
+    Main filmy baatein nahi karunga.  
+    Bas itna kehna hai —  
+    meri life mein jo tu karti hai na,  
+    wo koi aur kabhi nahi kar sakta.
+  </p>
+
+  <p>
+    Toh bachha…  
+    tu rahegi na meri life mein?  
+    Meri partner ban ke, meri strength ban ke,  
+    aur ek din… meri future wife ban ke ❤️
+  </p>
+
+  <div class="signature">
+    — Always yours,<br>
+    Om
+  </div>
 </div>
+
 </body>
 </html>
